@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "37714091699",
+    "firebase_url": "https://galleryapp-a410e.firebaseio.com",
+    "project_id": "galleryapp-a410e",
+    "storage_bucket": "galleryapp-a410e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:37714091699:android:c78858325b4c6ae4",
+        "android_client_info": {
+          "package_name": "com.hellofacebook"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "37714091699-4fo6e1dgtk5palc7g2u2c7edfu3log6s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDhh4POfWHTfqXnk3AAF-rqrQJg0DFr3Jo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

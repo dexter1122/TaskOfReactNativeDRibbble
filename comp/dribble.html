@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<head onscroll="myFunction()">
+
+	
+<div class="bar">Dribble Shots</div>
+<div id="wrapper">
+
+</div>
+
+
+ <div id='loadingmessage' style='display:none'>
+ 	<h2>Loading . . .<h2>
+<img src="X:\React\HelloFacebook\comp\810.gif"/>
+
+</div>
+
+</head>
+
+
+<script>
+
+var dribbble = 'creativemints';
+//Amoung of shots to display
+var limit = 38;
+var accessToken = '14656ec808f65ca403d844079a3f5ccebeab8e9ceab50653ee243c74c43d8c83';
+//Call Dribble API
+ $('#loadingmessage').show();
+$.ajax({
+    url: 'https://api.dribbble.com/v1/users/'+dribbble+'/shots?access_token='+accessToken,
+    dataType: 'json',
+    type: 'GET',
+    success: function(data) {  
+    	 $('#loadingmessage').hide();
+          for (var i = 0; i < limit; i++) {
+            			//Shot with width 200x150
+                  var images_normal = $("<img/>").attr("src", data[i].images.normal).attr("alt", data[i].title); 
+            			//Shots with width 400x300
+            			var images_teaser = $("<img/>").attr("src", data[i].images.teaser).attr("alt", data[i].title);  
+                  var likes = $("<li>").html("<i class='fa fa-heart'></li> " + data[i].likes_count);
+            			var comments = $("<li>").html("<i class='fa fa-comment'></li> " + data[i].comments_count);
+                  var views = $("<li>").html("<i class='fa fa-eye'></li> " + data[i].views_count);
+            			var post_stats = $("<ul>").append(views,likes,comments);
+            			//Wrap link around image to make clickable image
+            			var link = $("<a class='link' target='_blank'>").attr("href",data[i].html_url).append(images_teaser);
+           				var shots = $("<div class='shot'>").append(link,post_stats);
+            			$('#wrapper').append(shots); 
+
+            }
+    } 
+});
+
+</script>
+<body>   
+
+
+</body>
+</html>
+
+<style>
+
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+#loadingmessage {
+    position: absolute;
+    width: 120px;
+    height: 61px;
+    z-index: 11;
+    top: 50%;
+    left: 70%;
+    margin: 0px 0 0 -150px;
+    background: rgba(255, 0, 0, 0);
+}
+body {
+  background: #F0F0F0;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0px;
+  font-size: 12px;
+  line-height: 22px;
+  color: #555;
+}
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+}
+.menu {
+  height: 56px;
+  background: #333;
+  background: rgba(47,47,47,0.98);
+}
+.menu ul {
+  width:980px;
+  margin:0px auto;
+  padding:0px;
+}
+.menu ul li{
+  float:left;
+  list-style:none;
+  display:inline;
+}
+.menu ul li.active a{
+  color:#fff;
+}
+.menu ul li a{
+  display: block;
+  height: 56px;
+  padding: 0 10px;
+  line-height: 56px;
+  text-decoration: none;
+  color: #999;
+  cursor:pointer;
+}
+.menu ul li.logo a{
+  padding: 0 20px 0 0;
+  display: block;
+  width: 76px;
+  height: 56px;
+  background-repeat: no-repeat;
+  background-position: 0 50%;
+  background-image: url(https://d13yacurqjgara.cloudfront.net/assets/logo-small-81973ada6cbc43e760963d9da1cd6478.png);
+  -webkit-transition: opacity 0.2s ease;
+  -moz-transition: opacity 0.2s ease;
+  -o-transition: opacity 0.2s ease;
+  transition: opacity 0.2s ease;
+}
+.menu ul li a:hover{
+  color:#fff;
+}
+.menu ul li.drop a {
+  line-height:70px;
+}
+.menu ul li.drop a i {
+  font-size:25px;
+}
+#wrapper {
+  margin: 20px;
+  width: 400px;
+  margin: 0 auto;
+}
+.img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+}
+.shot {
+  float: left;
+  background: #FFF;
+  border: solid 1px #EEE;
+  padding: 12px;
+  margin: 0px 20px 20px 0px;
+  border-radius: 3px;
+width: 358px;
+}
+.shot img {
+    min-height: 250px;
+}
+.shot:hover {
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .2);
+  -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .2);
+}
+
+.shot ul {
+  padding: 0px;
+  margin:0px;
+}
+
+.shot ul li {
+  float: left;
+  list-style: none;
+  margin-right: 8px;
+  color: #888;
+  font-size: 11px;
+}
+.shot ul li i{
+  margin-right:5px;
+}
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%
+}
+
+.sticky + .content {
+  padding-top: 60px;
+}
+.bar {
+	  overflow: hidden;
+
+  position: relative;
+  border-bottom: 1px solid #e5e5e5;
+  background: #FFC107;
+  text-align:center;
+  padding:15px;
+  margin-bottom:20px;
+      font-size: 26px;
+    font-family: inherit;
+}
+
+
+</style>
+<script>
+var navbar = document.getElementById("navbar");
+var sticky = navbar.offsetTop;
+
+function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky")
+  } else {
+    navbar.classList.remove("sticky");
+  }
+}
+</script>
