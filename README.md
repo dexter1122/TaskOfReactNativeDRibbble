@@ -22,5 +22,10 @@ To run the Android project,
   npm install react-native #install react-native
   react-native install react-native-fbsdk
   react-native link react-native-fbsdk
+  react-native install dribble-api
+  react-native install react-native-tab-navigator
+  react-native install react-native-tab-navigator
+
+
 ```
-Now you can run the Android app.
+Now you can run the Android app. but React native version should be up to date , Navigator have its own depreciated library, update it too.
