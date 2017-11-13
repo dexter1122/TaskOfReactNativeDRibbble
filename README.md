@@ -1,6 +1,6 @@
-# HelloFacebook Sample App
-HelloFacebook is a react-native app using react-native-fbsdk.
-This app showcases a Facebook login button and a share dialog.
+# Task for job to work in react native 
+
+INDEX file is calling .t/ in comp folder , which is actually a launch code , then profile screen in comp folder
 
 To run the iOS project,
 ```java
