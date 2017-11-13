@@ -1,6 +1,9 @@
 # Task for job to work in react native 
 
 INDEX file is calling .t/ in comp folder , which is actually a launch code , then profile screen in comp folder
+./comp/t.js = MAIN LOGIN SCREEN
+./comp/profilescreen.js = SUCCESS LOGIN 
+
 
 To run the iOS project,
 ```java
